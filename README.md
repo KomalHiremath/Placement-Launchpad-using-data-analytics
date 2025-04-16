@@ -67,6 +67,3 @@ A smart and data-driven platform designed to assist students and placement cells
 - Integration with LinkedIn and GitHub  
 - Predictive analytics for placement readiness  
 
----
-
-Let me know if you want a version with GitHub formatting tips or deployment instructions as well.
