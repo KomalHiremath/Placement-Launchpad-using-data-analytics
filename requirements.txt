@@ -1,0 +1,7 @@
+npm init -y
+npm install express mysql2 body-parser
+npm install express ejs mysql
+npm install ejs
+npm install mysql
+npm install nodemailer
+npm install passport
