@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Interviewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-600 to-blue-300 min-h-screen">
+    <h1 class="text-2xl text-center mt-8">Update Interviewer</h1>
+    <div class="text-center my-4">
+        <a href="/" class="text-blue-600 hover:underline">Home</a>
+        <a href="/interviewer/create" class="text-blue-600 hover:underline">Create</a>
+        <a href="/interviewer" class="text-blue-600 hover:underline">Read</a>
+        <a href="/logout" class="text-blue-600 hover:underline">Logout</a>
+    </div>
+    <form action="/interviewer/update/<%= interviewerRecord.emp_id %>" method="POST" class="max-w-lg mx-auto mt-8 bg-white rounded-lg shadow-md px-8 py-6">
+        <label for="Interviewer_name" class="block mb-2">Interviewer Name:</label>
+        <input type="text" id="Interviewer_name" name="Interviewer_name" value="<%= interviewerRecord.Interviewer_name %>" required class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500">
+
+        <label for="Designation" class="block mb-2">Designation:</label>
+        <input type="text" id="Designation" name="Designation" value="<%= interviewerRecord.Designation %>" required class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500">
+
+        <label for="Contact" class="block mb-2">Contact:</label>
+        <input type="text" id="Contact" name="Contact" value="<%= interviewerRecord.Contact %>" required class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500">
+
+        <label for="Email" class="block mb-2">Email:</label>
+        <input type="email" id="Email" name="Email" value="<%= interviewerRecord.Email %>" required class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500">
+
+        <label for="c_id" class="block mb-2">Company ID:</label>
+        <input type="number" id="c_id" name="c_id" value="<%= interviewerRecord.c_id %>" required class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-blue-500">
+
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update Interviewer</button>
+    </form>
+</body>
+</html>

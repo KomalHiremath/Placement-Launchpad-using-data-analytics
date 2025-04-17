@@ -1,69 +1,140 @@
-# Placement Launchpad using Data Analytics
+# accepts
 
-A smart and data-driven platform designed to assist students and placement cells in streamlining the campus recruitment process. The system leverages data analytics to track placement activities, visualize trends, and provide actionable insights for better decision-making.
+[![NPM Version][npm-version-image]][npm-url]
+[![NPM Downloads][npm-downloads-image]][npm-url]
+[![Node.js Version][node-version-image]][node-version-url]
+[![Build Status][github-actions-ci-image]][github-actions-ci-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
 
-## Features
+Higher level content negotiation based on [negotiator](https://www.npmjs.com/package/negotiator).
+Extracted from [koa](https://www.npmjs.com/package/koa) for general use.
 
-### Student Module
-- User registration and login.
-- Resume/CV upload and profile management.
-- View eligible companies based on CGPA, branch, and skillset.
-- Application tracking and interview schedule notifications.
+In addition to negotiator, it allows:
 
-### Admin/Placement Officer Module
-- Add/update company job postings with eligibility criteria.
-- Track student applications and placement status.
-- Filter and shortlist candidates automatically using analytics.
+- Allows types as an array or arguments list, ie `(['text/html', 'application/json'])`
+  as well as `('text/html', 'application/json')`.
+- Allows type shorthands such as `json`.
+- Returns `false` when no types match
+- Treats non-existent headers as `*`
 
-### Data Analytics Dashboard
-- Visualizations of placement trends by year, department, and company.
-- Metrics on highest, average, and median packages.
-- Insights on skill demand and success rate analysis.
+## Installation
 
-### Notification System
-- Email and SMS alerts for interview dates, deadlines, and results.
+This is a [Node.js](https://nodejs.org/en/) module available through the
+[npm registry](https://www.npmjs.com/). Installation is done using the
+[`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
-### Reports
-- Generate placement reports for documentation.
-- Download candidate lists and performance analytics in CSV or PDF.
+```sh
+$ npm install accepts
+```
 
-## Tech Stack
+## API
 
-- Frontend: HTML, CSS, JavaScript, Bootstrap  
-- Backend: Node.js
-- Database: MySQL
-- Analytics: Google charts 
-- Tools: Git, VSCode
+```js
+var accepts = require('accepts')
+```
 
-## System Requirements
+### accepts(req)
 
-- Python 3.x / Node.js & npm  
-- MySQL Server  
-- Modern web browser  
-- IDE (e.g., VSCode)  
-- Internet for API integration (if applicable)  
+Create a new `Accepts` object for the given `req`.
 
-## How to Run
+#### .charset(charsets)
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/placement-launchpad.git
-   ```
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Configure the database and environment variables.
-4. Run the backend server:
-   ```
-   python app.py
-   ```
-5. Open `http://localhost:5000` in your browser.
+Return the first accepted charset. If nothing in `charsets` is accepted,
+then `false` is returned.
 
-## Future Enhancements
+#### .charsets()
 
-- Resume screening with AI/NLP  
-- Chatbot for student queries  
-- Integration with LinkedIn and GitHub  
-- Predictive analytics for placement readiness  
+Return the charsets that the request accepts, in the order of the client's
+preference (most preferred first).
 
+#### .encoding(encodings)
+
+Return the first accepted encoding. If nothing in `encodings` is accepted,
+then `false` is returned.
+
+#### .encodings()
+
+Return the encodings that the request accepts, in the order of the client's
+preference (most preferred first).
+
+#### .language(languages)
+
+Return the first accepted language. If nothing in `languages` is accepted,
+then `false` is returned.
+
+#### .languages()
+
+Return the languages that the request accepts, in the order of the client's
+preference (most preferred first).
+
+#### .type(types)
+
+Return the first accepted type (and it is returned as the same text as what
+appears in the `types` array). If nothing in `types` is accepted, then `false`
+is returned.
+
+The `types` array can contain full MIME types or file extensions. Any value
+that is not a full MIME types is passed to `require('mime-types').lookup`.
+
+#### .types()
+
+Return the types that the request accepts, in the order of the client's
+preference (most preferred first).
+
+## Examples
+
+### Simple type negotiation
+
+This simple example shows how to use `accepts` to return a different typed
+respond body based on what the client wants to accept. The server lists it's
+preferences in order and will get back the best match between the client and
+server.
+
+```js
+var accepts = require('accepts')
+var http = require('http')
+
+function app (req, res) {
+  var accept = accepts(req)
+
+  // the order of this list is significant; should be server preferred order
+  switch (accept.type(['json', 'html'])) {
+    case 'json':
+      res.setHeader('Content-Type', 'application/json')
+      res.write('{"hello":"world!"}')
+      break
+    case 'html':
+      res.setHeader('Content-Type', 'text/html')
+      res.write('<b>hello, world!</b>')
+      break
+    default:
+      // the fallback is text/plain, so no need to specify it above
+      res.setHeader('Content-Type', 'text/plain')
+      res.write('hello, world!')
+      break
+  }
+
+  res.end()
+}
+
+http.createServer(app).listen(3000)
+```
+
+You can test this out with the cURL program:
+```sh
+curl -I -H'Accept: text/html' http://localhost:3000/
+```
+
+## License
+
+[MIT](LICENSE)
+
+[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/accepts/master
+[coveralls-url]: https://coveralls.io/r/jshttp/accepts?branch=master
+[github-actions-ci-image]: https://badgen.net/github/checks/jshttp/accepts/master?label=ci
+[github-actions-ci-url]: https://github.com/jshttp/accepts/actions/workflows/ci.yml
+[node-version-image]: https://badgen.net/npm/node/accepts
+[node-version-url]: https://nodejs.org/en/download
+[npm-downloads-image]: https://badgen.net/npm/dm/accepts
+[npm-url]: https://npmjs.org/package/accepts
+[npm-version-image]: https://badgen.net/npm/v/accepts

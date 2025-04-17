@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Records</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-blue-500 to-purple-500 text-white min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white py-4">
+        <h1 class="text-center text-3xl font-bold">Employee Records</h1>
+    </header>
+    <nav class="bg-gray-200 text-blue-600 py-2 text-center">
+        <a href="/" class="hover:underline mx-2">Home</a>
+        <a href="/company/create" class="hover:underline mx-2">Create</a>
+        <a href="/company" class="hover:underline mx-2">Read</a>
+        <a href="/logout" class="hover:underline mx-2">Logout</a>
+    </nav>
+    <main class="flex-grow p-4">
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white text-black rounded-lg shadow-lg">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="px-4 py-2 text-left">USN</th>
+                        <th class="px-4 py-2 text-left">Name</th>
+                        <th class="px-4 py-2 text-left">Gender</th>
+                        <th class="px-4 py-2 text-left">Number of Offers</th>
+                        <th class="px-4 py-2 text-left">Employer Name</th>
+                        <th class="px-4 py-2 text-left">Designation</th>
+                        <th class="px-4 py-2 text-left">Campus Type</th>
+                        <th class="px-4 py-2 text-left">Company Type</th>
+                        <th class="px-4 py-2 text-left">CTC</th>
+                        <th class="px-4 py-2 text-left">Employer Email</th>
+                        <th class="px-4 py-2 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% employmentRecords.forEach(employee => { %>
+                        <tr class="border-b hover:bg-gray-200">
+                            <td class="px-4 py-2"><%= employee.usn %></td>
+                            <td class="px-4 py-2"><%= employee.name %></td>
+                            <td class="px-4 py-2"><%= employee.gender %></td>
+                            <td class="px-4 py-2"><%= employee.num_of_offers %></td>
+                            <td class="px-4 py-2"><%= employee.employer_name %></td>
+                            <td class="px-4 py-2"><%= employee.designation %></td>
+                            <td class="px-4 py-2"><%= employee.campus_type %></td>
+                            <td class="px-4 py-2"><%= employee.company_type %></td>
+                            <td class="px-4 py-2"><%= employee.ctc %></td>
+                            <td class="px-4 py-2"><%= employee.employer_email %></td>
+                            <td class="px-4 py-2 space-x-2">
+                                <a href="/employment/update/<%= employee.usn %>" class="text-blue-600 hover:underline">Update</a>
+                                <a href="/employment/delete/<%= employee.usn %>" class="text-red-600 hover:underline">Delete</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer class="bg-blue-600 text-white py-4 text-center">
+        <p>&copy; 2024 Your Organization</p>
+    </footer>
+</body>
+</html>

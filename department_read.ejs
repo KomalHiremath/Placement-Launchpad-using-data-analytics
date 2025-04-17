@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Details</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white p-4 text-center">
+        <h1 class="text-2xl font-bold">Department Details</h1>
+    </header>
+    <nav class="bg-gray-200 p-4 text-center">
+        <a href="/" class="text-blue-600 hover:underline mx-2">Home</a>
+        <!-- <a href="/education" class="text-blue-600 hover:underline mx-2">Education</a> -->
+        <a href="/departments/create" class="text-blue-600 hover:underline mx-2">Create Departments</a>
+        <a href="/admin" class="text-blue-600 hover:underline mx-2">Navigation</a>
+    </nav>
+    <div class="flex-grow container mx-auto p-4">
+        <table class="min-w-full bg-white border border-gray-200">
+            <thead>
+                <tr>
+                    <th class="py-2 px-4 border-b">ID</th>
+                    <th class="py-2 px-4 border-b">Name</th>
+                    <th class="py-2 px-4 border-b">Location</th>
+                    <th class="py-2 px-4 border-b">Head of Department</th>
+                    <th class="py-2 px-4 border-b">Placement Officer</th>
+                    <th class="py-2 px-4 border-b">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% departments.forEach(department => { %>
+                    <tr class="hover:bg-gray-100">
+                        <td class="py-2 px-4 border-b"><%= department.dept_id %></td>
+                        <td class="py-2 px-4 border-b"><%= department.dept_name %></td>
+                        <td class="py-2 px-4 border-b"><%= department.dept_location %></td>
+                        <td class="py-2 px-4 border-b"><%= department.dept_HOD %></td>
+                        <td class="py-2 px-4 border-b"><%= department.dept_placement_officer %></td>
+                        <td class="py-2 px-4 border-b">
+                            <a href="/departments/update/<%= department.dept_id %>" class="text-blue-600 hover:underline mr-2">Update</a>
+                            <a href="/departments/delete/<%= department.dept_id %>" class="text-red-600 hover:underline">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <footer class="bg-blue-600 text-white p-4 text-center">
+        <p>&copy; 2024 SGBIT</p>
+    </footer>
+</body>
+</html>

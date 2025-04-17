@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Student Records</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 font-sans">
+    <header class="bg-blue-500 text-white py-4">
+        <h1 class="text-center">Current Student Records</h1>
+    </header>
+    <nav class="bg-gray-200 py-2">
+        <a href="/" class="text-blue-500 hover:text-blue-700 mx-2">Home</a>
+        <a href="/education" class="text-blue-500 hover:text-blue-700 mx-2">Education</a>
+        <a href="/current_student/create" class="text-blue-500 hover:text-blue-700 mx-2">Create</a>
+        <a href="/current_student" class="text-blue-500 hover:text-blue-700 mx-2">Read</a>
+        <a href="/logout" class="text-blue-500 hover:text-blue-700 mx-2">Logout</a>
+    </nav>
+    <div class="mx-auto max-w-7xl mt-8 text-white">
+        <table class="w-full table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">USN</th>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Address</th>
+                    <th class="px-4 py-2">Email</th>
+                    <th class="px-4 py-2">Date of Birth</th>
+                    <th class="px-4 py-2">City</th>
+                    <th class="px-4 py-2">State</th>
+                    <th class="px-4 py-2">Department ID</th>
+                    <th class="px-4 py-2">Gender</th>
+                    <th class="px-4 py-2">Contact</th>
+                    <th class="px-4 py-2">Department</th>
+                    <th class="px-4 py-2">Actions</th> <!-- New column for actions -->
+                </tr>
+            </thead>
+            <tbody>
+                <% currentStudents.forEach(student => { %>
+                    <tr>
+                        <td class="border px-4 py-2"><%= student.usn %></td>
+                        <td class="border px-4 py-2"><%= student.name %></td>
+                        <td class="border px-4 py-2"><%= student.address %></td>
+                        <td class="border px-4 py-2"><%= student.email %></td>
+                        <td class="border px-4 py-2"><%= student.DOB %></td>
+                        <td class="border px-4 py-2"><%= student.city %></td>
+                        <td class="border px-4 py-2"><%= student.state %></td>
+                        <td class="border px-4 py-2"><%= student.dept_id %></td>
+                        <td class="border px-4 py-2"><%= student.gender %></td>
+                        <td class="border px-4 py-2"><%= student.contact %></td>
+                        <td class="border px-4 py-2"><%= student.category %></td>
+                        <td class="border px-4 py-2">
+                            <!-- Update Link -->
+                            <a href="/current_student/update/<%= student.usn %>" class="text-blue-500 hover:text-blue-700">Update</a>
+                            <!-- Delete Link -->
+                            <a href="/current_student/delete/<%= student.usn %>" class="text-red-500 hover:text-red-700">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <footer class="bg-blue-500 text-white py-4 bottom-0 w-full text-center">
+        <p>&copy; 2024 SGBIT</p>
+    </footer>
+</body>
+</html>

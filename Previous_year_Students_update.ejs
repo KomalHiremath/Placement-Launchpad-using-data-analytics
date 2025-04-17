@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Previous Year Student Record</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-b from-indigo-600 to-indigo-300">
+    <h1 class="text-center text-3xl font-bold mt-10">Update Previous Year Student Record</h1>
+    <div class="navigation text-center mb-10">
+        <a href="/" class="text-blue-500">Home</a>
+        <a href="/previous_year_students/create" class="text-blue-500">Create</a>
+        <a href="/previous_year_students" class="text-blue-500">Read</a>
+        <a href="/logout" class="text-blue-500">Logout</a>
+    </div>
+    <form action="/previous_year_students/update/<%= previousYearStudent.usn %>" method="POST"
+        class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <label for="f_name" class="block mb-2">First Name:</label>
+            <input type="text" id="f_name" name="f_name" value="<%= previousYearStudent.f_name %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="l_name" class="block mb-2">Last Name:</label>
+            <input type="text" id="l_name" name="l_name" value="<%= previousYearStudent.l_name %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="Previous_year_Studentscol" class="block mb-2">Previous Year Students Column:</label>
+            <input type="text" id="Previous_year_Studentscol" name="Previous_year_Studentscol"
+                value="<%= previousYearStudent.Previous_year_Studentscol %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="address" class="block mb-2">Address:</label>
+            <input type="text" id="address" name="address" value="<%= previousYearStudent.address %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block mb-2">Email:</label>
+            <input type="email" id="email" name="email" value="<%= previousYearStudent.email %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="contact" class="block mb-2">Contact:</label>
+            <input type="text" id="contact" name="contact" value="<%= previousYearStudent.contact %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="c_id" class="block mb-2">Company ID:</label>
+            <input type="number" id="c_id" name="c_id" value="<%= previousYearStudent.c_id %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="DOB" class="block mb-2">Date of Birth:</label>
+            <input type="date" id="DOB" name="DOB" value="<%= previousYearStudent.DOB %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="year_of_passing" class="block mb-2">Year of Passing:</label>
+            <input type="text" id="year_of_passing" name="year_of_passing" value="<%= previousYearStudent.year_of_passing %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="city" class="block mb-2">City:</label>
+            <input type="text" id="city" name="city" value="<%= previousYearStudent.city %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="state" class="block mb-2">State:</label>
+            <input type="text" id="state" name="state" value="<%= previousYearStudent.state %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="work_city" class="block mb-2">Work City:</label>
+            <input type="text" id="work_city" name="work_city" value="<%= previousYearStudent.work_city %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="salary" class="block mb-2">Salary:</label>
+            <input type="number" id="salary" name="salary" step="0.01" value="<%= previousYearStudent.salary %>"
+                class="w-full px-3 py-2 border rounded-md" required>
+        </div>
+
+        <div class="mb-4">
+            <label for="designation" class="block mb-2">Designation:</label>
+            <input type="text" id="designation" name="designation" value="<%= previousYearStudent.designation %>"
+            class="w-full px-3 py-2 border rounded-md" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="dept_id" class="block mb-2">Department ID:</label>
+        <input type="number" id="dept_id" name="dept_id" value="<%= previousYearStudent.dept_id %>"
+            class="w-full px-3 py-2 border rounded-md" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="gender" class="block mb-2">Gender:</label>
+        <input type="text" id="gender" name="gender" value="<%= previousYearStudent.gender %>"
+            class="w-full px-3 py-2 border rounded-md" required>
+    </div>
+
+    <div class="mb-4">
+        <label for="category" class="block mb-2">Category:</label>
+        <input type="text" id="category" name="category" value="<%= previousYearStudent.category %>"
+            class="w-full px-3 py-2 border rounded-md" required>
+    </div>
+
+    <button type="submit"
+        class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Update</button>
+</form>
+</body>
+
+</html>
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>applyInterview Records</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-blue-400 font-sans">
+
+    <header class="bg-blue-500 text-white py-4">
+        <h1 class="text-3xl font-semibold text-center">Applied Students</h1>
+    </header>
+
+    <nav class="bg-gray-200 py-2">
+        <div class="container mx-auto flex justify-center">
+            <a href="/" class="text-blue-500 hover:text-blue-700 mr-4">Home</a>
+            <a href="/logout" class="text-blue-500 hover:text-blue-700">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        <table class="w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">USN</th>
+                    <th class="px-4 py-2">Interview ID</th>
+                    <th class="px-4 py-2">Company ID</th>
+                    <th class="px-4 py-2">Expected Skills</th>
+                    <th class="px-4 py-2">CGPA</th>
+                    <th class="px-4 py-2">Expected Technology Awareness</th>
+                    <th class="px-4 py-2">Email</th>
+                    <!-- <th class="px-4 py-2">Actions</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <% applyInterviewRecords.forEach(record => { %>
+                    <tr class="hover:bg-gray-100">
+                        <td class="border px-4 py-2"><%= record.usn %></td>
+                        <td class="border px-4 py-2"><%= record.interview_id %></td>
+                        <td class="border px-4 py-2"><%= record.c_id %></td>
+                        <td class="border px-4 py-2"><%= record.expected_skills %></td>
+                        <td class="border px-4 py-2"><%= record.cgpa %></td>
+                        <td class="border px-4 py-2"><%= record.expected_technology_awarness %></td>
+                        <td class="border px-4 py-2"><%= record.email %></td>
+                        <!-- <td class="border px-4 py-2">
+                            <a href="/send-email/<%= record.usn %>/<%= record.interview_id %>" class="text-blue-500 hover:text-blue-700">Send Mail</a>
+                        </td> -->
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="bg-blue-500 text-white text-center py-4 mt-8">
+        <p>&copy; 2024 Risk Guard Enterprise Solutions</p>
+    </footer>
+
+</body>
+</html>

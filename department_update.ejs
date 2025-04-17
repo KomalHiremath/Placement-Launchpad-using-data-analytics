@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Department</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4">
+        <h1 class="text-center text-2xl font-bold text-white mb-4">Update Department</h1>
+        <div class="text-center mb-4">
+            <a href="/departments" class="text-blue-200 hover:underline">Departments</a>
+        </div>
+        <form action="/departments/update/<%= department.dept_id %>" method="POST" class="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+            <!-- Add a hidden input field to pass the department ID -->
+            <input type="hidden" name="dept_id" value="<%= department.dept_id %>">
+            
+            <div class="mb-4">
+                <label for="dept_name" class="block text-gray-700 font-bold mb-2">Department Name:</label>
+                <input type="text" id="dept_name" name="dept_name" value="<%= department.dept_name %>" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+            
+            <div class="mb-4">
+                <label for="dept_location" class="block text-gray-700 font-bold mb-2">Location:</label>
+                <input type="text" id="dept_location" name="dept_location" value="<%= department.dept_location %>" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+            
+            <div class="mb-4">
+                <label for="dept_HOD" class="block text-gray-700 font-bold mb-2">Head of Department:</label>
+                <input type="text" id="dept_HOD" name="dept_HOD" value="<%= department.dept_HOD %>" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+            
+            <div class="mb-4">
+                <label for="dept_placement_officer" class="block text-gray-700 font-bold mb-2">Placement Officer:</label>
+                <input type="text" id="dept_placement_officer" name="dept_placement_officer" value="<%= department.dept_placement_officer %>" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Update Department</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

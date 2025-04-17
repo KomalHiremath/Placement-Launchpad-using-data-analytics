@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Navigation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gradient-to-b from-blue-800 to-purple-400 text-center text-gray-100 min-h-screen flex flex-col">
+    <header class="mt-10">
+        <h1 class="text-4xl font-bold">Welcome, Admin!!</h1>
+    </header>
+    <main class="flex-grow">
+        <div class="navigation-links mt-10 flex flex-wrap justify-center">
+            <!-- <a href="/" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Home</a> -->
+            <!-- <a href="/current_student" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Current Student</a>
+            <a href="/previous_year_students" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Previous Students</a>
+            <a href="/company" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Company</a>
+            <a href="/interviewer" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Interviewer</a>
+            <a href="/interview" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Interview</a>
+            <a href="/xstudents" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">XStudents</a>
+            <a href="/departments/create" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Create Departments</a>
+            <a href="/departments" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Departments</a>
+            <a href="/send_email" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Send Mail</a> -->
+            <a href="/admin" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Navigation</a>
+            <!-- <a href="/datag" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Graph</a> -->
+            <a href="/logout" class="block p-3 bg-red-600 text-white rounded-lg m-2 w-48 hover:bg-red-700 transition-colors duration-200">Logout</a>
+        </div><br><br>
+    <button onclick="sendEmail()" class="block p-3 bg-pink-600 text-white rounded-lg m-20 w-48 hover:bg-red-700 transition-colors duration-200" style="margin-left: 45%;">Send Email</button>
+
+    <script>
+        function sendEmail() {
+            const toEmails = ['komalhiremath713@gmail.com','chaitramagadum077@gmail.com'];
+            const password = "ztwy znwz qlbt yabm";
+            const subject = 'Congratulations! Selected For Interview';
+            const message = 'Dear Candidate,\n\nCongratulations! You have been selected for an interview. For more details, please contact the Placement Officer.\n\nBest regards';
+
+            const xhr = new XMLHttpRequest();
+            const url = '/send_email'; // Update with your server endpoint
+
+            xhr.open('POST', url);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        alert('Email sent successfully!');
+                    } else {
+                        alert('Failed to send email. Please try again later.');
+                    }
+                }
+            };
+
+            const data = {
+                toEmails: toEmails,
+                password: password,
+                subject: subject,
+                message: message
+            };
+
+            xhr.send(JSON.stringify(data));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Navigation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gradient-to-b from-blue-800 to-purple-400 text-center text-gray-100 min-h-screen flex flex-col">
+    <header class="mt-10">
+        <h1 class="text-4xl font-bold">Welcome, Admin!!</h1>
+    </header>
+    <main class="flex-grow">
+        <div class="navigation-links mt-10 flex flex-wrap justify-center">
+            <!-- <a href="/current_student" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Current Student</a>
+            <a href="/previous_year_students" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Previous Students</a>
+            <a href="/company" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Company</a>
+            <a href="/interviewer" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Interviewer</a>
+            <a href="/interview" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Interview</a>
+            <a href="/xstudents" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">XStudents</a>
+            <a href="/departments/create" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Create Departments</a>
+            <a href="/departments" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Departments</a> -->
+            <a href="/send_email" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Send Mail</a>
+            <!-- <a href="/send_email" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Eligible Student</a> -->
+            <a href="/admin" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Navigation</a>
+            <!-- <a href="/datag" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Graph</a> -->
+            <a href="/logout" class="block p-3 bg-red-600 text-white rounded-lg m-2 w-48 hover:bg-red-700 transition-colors duration-200">Logout</a>
+        </div>
+    </main>
+
+    <header class="mt-10">
+        <h1 class="text-4xl font-bold">Eligible Students</h1>
+    </header>
+    <main class="flex-grow">
+        <div class="container mx-auto mt-10">
+            <table class="table-auto w-full bg-black shadow-md rounded-lg">
+                <thead>
+                    <tr class="bg-blue-600 text-white">
+                        <th class="px-4 py-2">USN</th>
+                        <th class="px-4 py-2">CGPA</th>
+                        <th class="px-4 py-2">10th Passing Year</th>
+                        <th class="px-4 py-2">10th Percentage</th>
+                        <th class="px-4 py-2">12th Passing Year</th>
+                        <th class="px-4 py-2">12th Percentage</th>
+                        <th class="px-4 py-2">Skills</th>
+                        <th class="px-4 py-2">Technologies</th>
+                        <th class="px-4 py-2">CET/COMEDK Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (students && students.length > 0) { %>
+                        <% students.forEach(student => { %>
+                            <tr>
+                                <td class="border px-4 py-2"><%= student.usn %></td>
+                                <td class="border px-4 py-2"><%= student.cgpa %></td>
+                                <td class="border px-4 py-2"><%= student.tenth_passing_year %></td>
+                                <td class="border px-4 py-2"><%= student.tenth_percentage %></td>
+                                <td class="border px-4 py-2"><%= student.twelfth_passing_year %></td>
+                                <td class="border px-4 py-2"><%= student.twelfth_percentage %></td>
+                                <td class="border px-4 py-2"><%= student.skills %></td>
+                                <td class="border px-4 py-2"><%= student.technologies %></td>
+                                <td class="border px-4 py-2"><%= student.Cet_comedk_rank %></td>
+                            </tr>
+                        <% }); %>
+                    <% } else { %>
+                        <tr>
+                            <td class="border px-4 py-2 text-center" colspan="9">No eligible students found.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

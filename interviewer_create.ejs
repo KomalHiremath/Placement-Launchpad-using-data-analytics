@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Interviewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* You can keep your custom styles here if needed */
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-600 to-blue-400">
+    <h1 class="text-center text-white text-3xl mt-20">Create Interviewer</h1>
+    <div class="text-center mt-4">
+        <a href="/" class="text-blue-500 hover:underline mr-4">Home</a>
+        <a href="/interviewer/create" class="text-blue-500 hover:underline mr-4">Create</a>
+        <a href="/interviewer" class="text-blue-500 hover:underline mr-4">Read</a>
+        <a href="/logout" class="text-blue-500 hover:underline">Logout</a>
+    </div>
+    <form class="max-w-md mx-auto mt-8 bg-white p-8 rounded-lg shadow-lg" action="/interviewer/create" method="POST">
+        <label for="Interviewer_name" class="block">Interviewer Name:</label>
+        <input type="text" id="Interviewer_name" name="Interviewer_name" required class="w-full px-4 py-2 mt-2 border rounded-md">
+
+        <label for="Designation" class="block mt-4">Designation:</label>
+        <input type="text" id="Designation" name="Designation" required class="w-full px-4 py-2 mt-2 border rounded-md">
+
+        <label for="Contact" class="block mt-4">Contact:</label>
+        <input type="text" id="Contact" name="Contact" required class="w-full px-4 py-2 mt-2 border rounded-md">
+
+        <label for="Email" class="block mt-4">Email:</label>
+        <input type="email" id="Email" name="Email" required class="w-full px-4 py-2 mt-2 border rounded-md">
+
+        <label for="c_id" class="block mt-4">Company ID:</label>
+        <input type="number" id="c_id" name="c_id" required class="w-full px-4 py-2 mt-2 border rounded-md">
+
+        <button type="submit" class="w-full mt-8 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Create Interviewer</button>
+    </form>
+</body>
+</html>

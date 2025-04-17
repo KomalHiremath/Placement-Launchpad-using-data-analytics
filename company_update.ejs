@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Company Record</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles can be added here if needed */
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 font-sans">
+    <h1 class="text-3xl font-bold text-center mt-8">Update Company Record</h1>
+    <div class="text-center mt-4">
+        <a href="/" class="text-blue-500 hover:text-blue-700">Home</a>
+        <a href="/company/create" class="text-blue-500 hover:text-blue-700">Create</a>
+        <a href="/company" class="text-blue-500 hover:text-blue-700">Read</a>
+        <a href="/logout" class="text-blue-500 hover:text-blue-700">Logout</a>
+    </div>
+
+    <form action="/company/update/<%= companyRecord.c_id %>" method="POST" class="max-w-md mx-auto bg-white p-6 mt-8 rounded-lg shadow-md">
+        <label for="c_name" class="block mb-2">Company Name:</label>
+        <input type="text" id="c_name" name="c_name" value="<%= companyRecord.c_name %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="address" class="block mb-2">Address:</label>
+        <input type="text" id="address" name="address" value="<%= companyRecord.address %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="contact" class="block mb-2">Contact:</label>
+        <input type="text" id="contact" name="contact" value="<%= companyRecord.contact %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="email" class="block mb-2">Email:</label>
+        <input type="email" id="email" name="email" value="<%= companyRecord.email %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="city" class="block mb-2">City:</label>
+        <input type="text" id="city" name="city" value="<%= companyRecord.city %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="state" class="block mb-2">State:</label>
+        <input type="text" id="state" name="state" value="<%= companyRecord.state %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="package" class="block mb-2">Package:</label>
+        <input type="number" id="package" name="package" step="0.01" value="<%= companyRecord.package %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="expected_skills" class="block mb-2">Expected Skills:</label>
+        <input type="text" id="expected_skills" name="expected_skills" value="<%= companyRecord.expected_skills %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <label for="expected_technology_awarness" class="block mb-2">Expected Technology Awareness:</label>
+        <input type="text" id="expected_technology_awarness" name="expected_technology_awarness" value="<%= companyRecord.expected_technology_awarness %>" required class="w-full px-3 py-2 mb-4 bg-gray-200 rounded-md focus:outline-none focus:ring focus:ring-blue-500 focus:border-blue-500">
+        
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Update
+        </button>
+    </form>
+</body>
+</html>

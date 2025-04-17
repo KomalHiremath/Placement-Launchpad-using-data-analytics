@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Current Student Record</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 font-sans">
+    <h1 class="text-center text-white mt-10">Update Current Student Record</h1>
+    <div class="text-center my-6">
+        <a href="/" class="text-blue-500 hover:text-blue-700 mx-2">Home</a>
+        <a href="/current_student/create" class="text-blue-500 hover:text-blue-700 mx-2">Create</a>
+        <a href="/current_student" class="text-blue-500 hover:text-blue-700 mx-2">Read</a>
+        <a href="/logout" class="text-blue-500 hover:text-blue-700 mx-2">Logout</a>
+    </div>
+    <form action="/current_student/update/<%= student.usn %>" method="POST" class="max-w-lg mx-auto bg-white p-8 rounded shadow-md">
+        <!-- Replace the action attribute with the actual route for updating student records in your application -->
+        <!-- Use method="POST" since you are submitting the form data -->
+
+        <!-- Input fields for updating student information -->
+        <label for="usn" class="block mb-2">USN:</label>
+        <input type="text" id="usn" name="usn" value="<%= student.usn %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="name" class="block mb-2">Name:</label>
+        <input type="text" id="name" name="name" value="<%= student.name %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+        
+        <label for="address" class="block mb-2">Address:</label>
+        <input type="text" id="address" name="address" value="<%= student.address %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="email" class="block mb-2">Email:</label>
+        <input type="email" id="email" name="email" value="<%= student.email %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="dob" class="block mb-2">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" value="<%= student.DOB %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="city" class="block mb-2">City:</label>
+        <input type="text" id="city" name="city" value="<%= student.city %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="state" class="block mb-2">State:</label>
+        <input type="text" id="state" name="state" value="<%= student.state %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="dept_id" class="block mb-2">Department ID:</label>
+        <input type="number" id="dept_id" name="dept_id" value="<%= student.dept_id %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="gender" class="block mb-2">Gender:</label>
+        <input type="text" id="gender" name="gender" value="<%= student.gender %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="contact" class="block mb-2">Contact:</label>
+        <input type="text" id="contact" name="contact" value="<%= student.contact %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <label for="category" class="block mb-2">Category:</label>
+        <input type="text" id="category" name="category" value="<%= student.category %>" required class="w-full p-2 mb-4 border border-gray-300 rounded">
+
+        <!-- Add more input fields for other student attributes as needed -->
+
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Update Student</button>
+    </form>
+</body>
+</html>

@@ -4,4 +4,3 @@ npm install express ejs mysql
 npm install ejs
 npm install mysql
 npm install nodemailer
-npm install passport

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Statistics</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gradient-to-b from-blue-800 to-purple-400 text-center text-gray-100 min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white text-xl font-semibold">Placement Portal</a>
+            <div class="space-x-4">
+                <a href="/" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a>
+                <a href="/about" class="text-gray-300 hover:text-white transition-colors duration-200">About Us</a>
+                <a href="/graph" class="text-gray-300 hover:text-white transition-colors duration-200">Placement Statistics</a>
+                <a href="/contact" class="text-gray-300 hover:text-white transition-colors duration-200">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="chart-container mt-10 mx-auto">
+        <canvas id="placement-chart"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const companies = ['Wipro', 'TCS', 'Capgemini', 'Skolar', 'Infosys', 'Cognizant', 'Verzeo', 'IBM', 'NTT Data', 'Tech Mahindra', 'Persistent', 'TCS/Capgemni', 'Quinnox', 'Shree Renuka Sugars', 'Capgemini ? No offer Letter', 'Accenture/Cognizant', 'Zensar Technology', 'Fujitsu', 'FIS Global/Capgemini', 'IOPEX', 'Infosys- No offer Letter', 'HCL', 'MindTree', 'Kodnest'];
+
+            const placementData = [16, 9, 8, 5, 4, 3, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+
+            const ctx = document.getElementById('placement-chart').getContext('2d');
+
+            const placementChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: companies,
+                    datasets: [{
+                        label: 'Number of Students Placed',
+                        data: placementData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)', // Adjust the color as needed
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Number of Students'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Companies'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Previous Year Student Record</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-600 to-blue-300 min-h-screen">
+    <h1 class="text-2xl text-center mt-8">Create Previous Year Student Record</h1>
+    <div class="text-center my-4">
+        <a href="/" class="text-blue-600 hover:underline">Home</a>
+        <a href="/previous_year_students/create" class="text-blue-600 hover:underline">Create</a>
+        <a href="/previous_year_students" class="text-blue-600 hover:underline">Read</a>
+        <a href="/logout" class="text-blue-600 hover:underline">Logout</a>
+    </div>
+    <form action="/previous_year_students/create" method="POST" class="max-w-md mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 my-8">
+        <div class="mb-4">
+            <label for="usn" class="block text-gray-700 font-bold mb-2">USN:</label>
+            <input type="text" id="usn" name="usn" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="f_name" class="block text-gray-700 font-bold mb-2">First Name:</label>
+            <input type="text" id="f_name" name="f_name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="l_name" class="block text-gray-700 font-bold mb-2">Last Name:</label>
+            <input type="text" id="l_name" name="l_name" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="Previous_year_Studentscol" class="block text-gray-700 font-bold mb-2">Previous Year Students Column:</label>
+            <input type="text" id="Previous_year_Studentscol" name="Previous_year_Studentscol" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="address" class="block text-gray-700 font-bold mb-2">Address:</label>
+            <input type="text" id="address" name="address" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email:</label>
+            <input type="email" id="email" name="email" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="contact" class="block text-gray-700 font-bold mb-2">Contact:</label>
+            <input type="text" id="contact" name="contact" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="c_id" class="block text-gray-700 font-bold mb-2">Company ID:</label>
+            <input type="number" id="c_id" name="c_id" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="DOB" class="block text-gray-700 font-bold mb-2">Date of Birth:</label>
+            <input type="date" id="DOB" name="DOB" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="year_of_passing" class="block text-gray-700 font-bold mb-2">Year of Passing:</label>
+            <input  type="text" id="year_of_passing" name="year_of_passing" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="city" class="block text-gray-700 font-bold mb-2">City:</label>
+            <input type="text" id="city" name="city" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="state" class="block text-gray-700 font-bold mb-2">State:</label>
+            <input type="text" id="state" name="state" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="work_city" class="block text-gray-700 font-bold mb-2">Work City:</label>
+            <input type="text" id="work_city" name="work_city" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="salary" class="block text-gray-700 font-bold mb-2">Salary:</label>
+            <input type="number" id="salary" name="salary" step="0.01" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="designation" class="block text-gray-700 font-bold mb-2">Designation:</label>
+            <input type="text" id="designation" name="designation" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="dept_id" class="block text-gray-700 font-bold mb-2">Department ID:</label>
+            <input type="number" id="dept_id" name="dept_id" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="gender" class="block text-gray-700 font-bold mb-2">Gender:</label>
+            <input type="text" id="gender" name="gender" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <div class="mb-4">
+            <label for="category" class="block text-gray-700 font-bold mb-2">Category:</label>
+            <input type="text" id="category" name="category" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+    </form>
+</body>
+</html>
+

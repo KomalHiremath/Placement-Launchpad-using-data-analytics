@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Records</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles can be added here if needed */
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 font-sans">
+    <header class="bg-blue-500 text-white py-4">
+        <h1 class="text-2xl text-center">Company Records</h1>
+    </header>
+    <nav class="bg-gray-200 py-2">
+        <div class="flex justify-center">
+            <a href="/" class="mx-2 text-blue-500 hover:text-blue-700">Home</a>
+            <a href="/company/create" class="mx-2 text-blue-500 hover:text-blue-700">Create</a>
+            <a href="/company" class="mx-2 text-blue-500 hover:text-blue-700">Read</a>
+            <a href="/logout" class="mx-2 text-blue-500 hover:text-blue-700">Logout</a>
+        </div>
+    </nav>
+
+    <table class="w-full mt-8">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="px-4 py-2">ID</th>
+                <th class="px-4 py-2">Name</th>
+                <th class="px-4 py-2">Address</th>
+                <th class="px-4 py-2">Contact</th>
+                <th class="px-4 py-2">Email</th>
+                <th class="px-4 py-2">City</th>
+                <th class="px-4 py-2">State</th>
+                <th class="px-4 py-2">Package</th>
+                <th class="px-4 py-2">Expected Skills</th>
+                <th class="px-4 py-2">Expected Tech Awareness</th>
+                <th class="px-4 py-2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% companyRecords.forEach(record => { %>
+                <tr>
+                    <td class="border px-4 py-2"><%= record.c_id %></td>
+                    <td class="border px-4 py-2"><%= record.c_name %></td>
+                    <td class="border px-4 py-2"><%= record.address %></td>
+                    <td class="border px-4 py-2"><%= record.contact %></td>
+                    <td class="border px-4 py-2"><%= record.email %></td>
+                    <td class="border px-4 py-2"><%= record.city %></td>
+                    <td class="border px-4 py-2"><%= record.state %></td>
+                    <td class="border px-4 py-2"><%= record.package %></td>
+                    <td class="border px-4 py-2"><%= record.expected_skills %></td>
+                    <td class="border px-4 py-2"><%= record.expected_technology_awarness %></td>
+                    <td class="border px-4 py-2">
+                        <a href="/company/update/<%= record.c_id %>" class="text-blue-500 hover:text-blue-700">Edit</a> |
+                        <a href="/company/delete/<%= record.c_id %>" class="text-red-500 hover:text-red-700" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <footer class="bg-blue-500 text-white py-4 fixed bottom-0 w-full text-center">
+        <p>&copy; 2024 SGBIT</p>
+    </footer>
+</body>
+</html>

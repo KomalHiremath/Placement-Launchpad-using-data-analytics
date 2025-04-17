@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-b from-indigo-600 to-blue-300 text-gray-800">
+    <h1 class="text-3xl font-bold text-center mt-8">Interview Records</h1>
+    <div class="flex justify-center mt-8">
+        <a href="/" class="text-blue-500 hover:underline mr-4">Home</a>
+        <a href="/logout" class="text-blue-500 hover:underline">Logout</a>
+    </div>
+    <table class="w-80 mx-auto border-collapse border border-gray-300 bg-white mt-8">
+        <thead>
+            <tr class="bg-gray-100">
+                <th class="px-4 py-2">USN</th>
+                <th class="px-4 py-2">Student Name</th>
+                <th class="px-4 py-2">Company Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% xstudents.forEach(xstudent => { %>
+            <tr class="hover:bg-gray-200">
+                <td class="px-4 py-2"><%= xstudent.usn %></td>
+                <td class="px-4 py-2"><%= xstudent.student_name %></td>
+                <td class="px-4 py-2"><%= xstudent.company_type %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+
+</html>

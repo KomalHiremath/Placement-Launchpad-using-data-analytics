@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Education Record</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4">
+        <h1 class="text-center text-2xl font-bold text-white mb-6">Create Education Record</h1>
+        <div class="text-center mb-6">
+            <a href="/" class="text-blue-200 hover:underline">Home</a>
+            <a href="/education/create" class="text-blue-200 hover:underline mx-4">Create</a>
+            <a href="/education" class="text-blue-200 hover:underline">Read</a>
+            <a href="/logout" class="text-blue-200 hover:underline ml-4">Logout</a>
+        </div>
+        <form action="/education/create" method="POST" class="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto">
+            <div class="mb-4">
+                <label for="usn" class="block text-gray-700 font-bold mb-2">USN:</label>
+                <input type="text" id="usn" name="usn" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="cgpa" class="block text-gray-700 font-bold mb-2">CGPA:</label>
+                <input type="text" id="cgpa" name="cgpa" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="tenth_passing_year" class="block text-gray-700 font-bold mb-2">10th Passing Year:</label>
+                <input type="date" id="tenth_passing_year" name="tenth_passing_year" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="tenth_percentage" class="block text-gray-700 font-bold mb-2">10th Percentage:</label>
+                <input type="number" id="tenth_percentage" name="tenth_percentage" step="0.01" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="twelfth_passing_year" class="block text-gray-700 font-bold mb-2">12th Passing Year:</label>
+                <input type="date" id="twelfth_passing_year" name="twelfth_passing_year" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="twelfth_percentage" class="block text-gray-700 font-bold mb-2">12th Percentage:</label>
+                <input type="number" id="twelfth_percentage" name="twelfth_percentage" step="0.01" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="skills" class="block text-gray-700 font-bold mb-2">Skills:</label>
+                <input type="text" id="skills" name="skills" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="technologies" class="block text-gray-700 font-bold mb-2">Technologies:</label>
+                <input type="text" id="technologies" name="technologies" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="mb-4">
+                <label for="Cet_comedk_rank" class="block text-gray-700 font-bold mb-2">CET/COMEDK Rank:</label>
+                <input type="number" id="Cet_comedk_rank" name="Cet_comedk_rank" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

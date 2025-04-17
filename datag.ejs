@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Navigation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="font-sans bg-gradient-to-b from-purple-800 to-pink-400 text-center text-gray-100 min-h-screen flex flex-col">
+    <header class="mt-10">
+        <h1 class="text-4xl font-bold">Welcome, Admin!!</h1>
+    </header>
+    <main class="flex-grow">
+        <div class="navigation-links mt-10 flex flex-wrap justify-center">
+            <!-- Navigation links -->
+            <a href="/current_student" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Current Student</a>
+            <a href="/previous_year_students" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Previous Students</a>
+            <a href="/company" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Company</a>
+            <a href="/interviewer" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Interviewer</a>
+            <a href="/interview" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Interview</a>
+            <a href="/xstudents" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">XStudents</a>
+            <a href="/departments/create" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Create Departments</a>
+            <a href="/departments" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Departments</a>
+            <a href="http://localhost/cee/cee/adminpanel/admin/home.php" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Test Details</a>
+            <a href="/send_email" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Send Mail</a>
+            <a href="/send_email" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Eligible Student</a>
+            <a href="/admin" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Navigation</a>
+            <a href="/datag" class="block p-3 bg-blue-600 text-white rounded-lg m-2 w-48 hover:bg-blue-700 transition-colors duration-200">Graph</a>
+            <a href="/logout" class="block p-3 bg-red-600 text-white rounded-lg m-2 w-48 hover:bg-red-700 transition-colors duration-200">Logout</a>
+        </div>
+    </main>
+    
+    <center><h1 class="text-4xl text-black items-center justify-center">Placement Graph</h1></center>
+    <div class="container mx-auto mt-10">
+      <div class="grid grid-cols-2 ">
+        <div>
+          <canvas id="lineChart" style="max-width: 500px;"></canvas>
+        </div>
+        <div>
+          <canvas id="barChart" style="max-width: 500px;"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Line Chart Data
+      const lineChartData = {
+        labels: ['2020 - 2021', '2021 - 2022', '2022 - 2023'],
+        datasets: [{
+          label: 'Number of Students Placed - Based on Academic Year',
+          data: [42, 53, 45],
+          borderColor: 'black',
+          borderWidth: 2,
+          fill: false,
+          color: 'black'
+        }]
+      };
+
+      // Bar Chart Data
+      const barChartData = {
+        labels: ['2020 - 2021', '2022 - 2023'],
+        datasets: [{
+          label: 'Package of Students Placed - Based on Academic Year : CTC',
+          data: [6, 5],
+          backgroundColor: ['red', 'blue'],
+          borderColor: ['black', 'black'],
+          borderWidth: 1,
+          color: 'black'
+        }]
+      };
+
+      // Line Chart Configuration
+      const lineChartConfig = {
+        type: 'line',
+        data: lineChartData,
+        options: {
+          plugins: {
+            legend: {
+              labels: {
+                color: 'black' // Set color for the dataset label
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Academic Year',
+                color: 'black'
+              },
+              ticks: {
+                color: 'black'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Number of Students Placed',
+                color: 'black'
+              },
+              ticks: {
+                beginAtZero: true,
+                color: 'black'
+              }
+            }
+          }
+        }
+      };
+
+      // Bar Chart Configuration
+      const barChartConfig = {
+        type: 'bar',
+        data: barChartData,
+        options: {
+          plugins: {
+            legend: {
+              labels: {
+                color: 'black' // Set color for the dataset label
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Academic Year',
+                color: 'black'
+              },
+              ticks: {
+                color: 'black'
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Package (CTC)',
+                color: 'black'
+              },
+              ticks: {
+                beginAtZero: true,
+                color: 'black'
+              }
+            }
+          }
+        }
+      };
+
+      // Render Charts
+      const lineChart = new Chart(document.getElementById('lineChart'), lineChartConfig);
+      const barChart = new Chart(document.getElementById('barChart'), barChartConfig);
+    </script>
+</body>
+</html>

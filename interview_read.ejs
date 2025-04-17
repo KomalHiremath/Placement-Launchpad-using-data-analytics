@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+    </style>
+</head>
+<body class="bg-gradient-to-b from-indigo-600 to-blue-400">
+    <header class="bg-blue-500 text-white py-4">
+        <h1 class="text-2xl font-semibold text-center">Interview Records</h1>
+    </header>
+    <nav class="bg-gray-200 py-2" style="background-color: #f3f4f6; padding: 8px 0;">
+        <div class="container mx-auto flex justify-center">
+            <a href="/" class="nav-link" style="margin-right: 10px; color: #4b5563; text-decoration: none;">Home</a>
+            <a href="/interview/create" class="nav-link" style="margin-right: 10px; color: #4b5563; text-decoration: none;">Create</a>
+            <a href="/interview" class="nav-link" style="margin-right: 10px; color: #4b5563; text-decoration: none;">Read</a>
+            <a href="/logout" class="nav-link" style="color: #4b5563; text-decoration: none;">Logout</a>
+        </div>
+    </nav>
+    
+    <div class="container mx-auto px-4 py-8">
+        <table class="w-full">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Interview ID</th>
+                    <th class="px-4 py-2">Company ID</th>
+                    <th class="px-4 py-2">Interview Date</th>
+                    <th class="px-4 py-2">Interview Time</th>
+                    <th class="px-4 py-2">Expected Skills</th>
+                    <th class="px-4 py-2">CGPA</th>
+                    <th class="px-4 py-2">Expected Technology Awareness</th>
+                    <th class="px-4 py-2">Location</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% interviewRecords.forEach(interview => { %>
+                    <tr>
+                        <td class="px-4 py-2"><%= interview.interview_id %></td>
+                        <td class="px-4 py-2"><%= interview.c_id %></td>
+                        <td class="px-4 py-2"><%= interview.interview_date %></td>
+                        <td class="px-4 py-2"><%= interview.inter_time %></td>
+                        <td class="px-4 py-2"><%= interview.expected_skills %></td>
+                        <td class="px-4 py-2"><%= interview.cgpa %></td>
+                        <td class="px-4 py-2"><%= interview.expected_technology_awarness %></td>
+                        <td class="px-4 py-2"><%= interview.location %></td>
+                        <td class="px-4 py-2">
+                            <a href="/interview/update/<%= interview.interview_id %>" class="text-blue-500 hover:underline mr-2">Update</a>
+                            <a href="/interview/delete/<%= interview.interview_id %>" class="text-red-500 hover:underline">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+    <footer class="bg-blue-500 text-white py-4 fixed bottom-0 w-full">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Risk Guard Enterprise Solutions </p>
+        </div>
+    </footer>
+</body>
+</html>

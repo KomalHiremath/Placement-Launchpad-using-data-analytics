@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ApplyInterview Records</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gradient-to-b from-blue-800 to-purple-400 text-center text-gray-100 min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-white text-xl font-semibold">University</a>
+            <div class="space-x-4">
+                <a href="/" class="text-gray-300 hover:text-white transition-colors duration-200">Home</a>
+                <a href="/applyInterview/create" class="text-gray-300 hover:text-white transition-colors duration-200">Create</a>
+                <a href="/applyInterview" class="text-gray-300 hover:text-white transition-colors duration-200">Read</a>
+                <a href="/logout" class="text-gray-300 hover:text-white transition-colors duration-200">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-blue-600 p-4">
+        <h1 class="text-3xl font-bold text-white">ApplyInterview Records</h1>
+    </header>
+
+    <!-- Table -->
+    <div class="container mx-auto my-8">
+        <table class="w-full table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">USN</th>
+                    <th class="px-4 py-2">Interview ID</th>
+                    <th class="px-4 py-2">Company ID</th>
+                    <th class="px-4 py-2">Expected Skills</th>
+                    <th class="px-4 py-2">CGPA</th>
+                    <th class="px-4 py-2">Expected Technology Awareness</th>
+                    <th class="px-4 py-2">Email</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% applyInterviewRecords.forEach(record => { %>
+                    <tr>
+                        <td class="border px-4 py-2"><%= record.usn %></td>
+                        <td class="border px-4 py-2"><%= record.interview_id %></td>
+                        <td class="border px-4 py-2"><%= record.c_id %></td>
+                        <td class="border px-4 py-2"><%= record.expected_skills %></td>
+                        <td class="border px-4 py-2"><%= record.cgpa %></td>
+                        <td class="border px-4 py-2"><%= record.expected_technology_awarness %></td>
+                        <td class="border px-4 py-2"><%= record.email %></td>
+                        <td class="border px-4 py-2">
+                            <a href="/applyInterview/update/<%= record.usn %>/<%= record.interview_id %>" class="text-blue-500 hover:underline mr-2">Update</a>
+                            <a href="/applyInterview/delete/<%= record.usn %>/<%= record.interview_id %>" class="text-blue-500 hover:underline">Delete</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-4 mt-auto">
+        <p>&copy; 2024 SGBIT</p>
+    </footer>
+</body>
+</html>

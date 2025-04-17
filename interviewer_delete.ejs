@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Display</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <h1 class="text-2xl text-center my-4">Graph Display</h1>
+    <div class="mx-auto w-3/4">
+        <canvas id="graphCanvas" class="mx-auto" width="400" height="300"></canvas>
+    </div>
+
+    <script>
+        // Data for the graph 
+        const data = [50, 100, 60, 20, 50]; 
+
+        // Get canvas element
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Define graph properties
+        const graph = {
+            width: canvas.width,
+            height: canvas.height,
+            margin: 20,
+            maxValue: Math.max(...data),
+            data: data
+        };
+
+        // Function to draw the graph
+        function drawGraph() {
+            ctx.clearRect(0, 0, graph.width, graph.height);
+
+            // Calculate the width of each bar
+            const barWidth = (graph.width - 2 * graph.margin) / graph.data.length;
+
+            // Draw each bar
+            graph.data.forEach((value, index) => {
+                const x = graph.margin + index * barWidth;
+                const y = graph.height - (value / graph.maxValue) * (graph.height - graph.margin * 2);
+
+                ctx.fillStyle = 'blue'; // Bar color
+                ctx.fillRect(x, y, barWidth, graph.height - y);
+            });
+        }
+
+        // Call drawGraph function to draw the graph
+        drawGraph();
+    </script>
+</body>
+</html>

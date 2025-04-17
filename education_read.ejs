@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Records</title>
+    <!-- Add Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-b from-indigo-700 to-purple-500 min-h-screen flex flex-col">
+    <header class="bg-blue-600 text-white py-4">
+        <h1 class="text-center text-2xl font-bold">Education Records</h1>
+    </header>
+    <nav class="bg-gray-200 py-4">
+        <div class="text-center">
+            <a href="/" class="text-blue-600 hover:underline mx-2">Home</a>
+            <a href="/education/create" class="text-blue-600 hover:underline mx-2">Create</a>
+            <a href="/education" class="text-blue-600 hover:underline mx-2">Read</a>
+            <a href="/logout" class="text-blue-600 hover:underline mx-2">Logout</a>
+        </div>
+    </nav>
+    <div class="container mx-auto px-4 py-4">
+        <div class="overflow-x-auto">
+            <table class="min-w-full bg-white shadow-md rounded-lg">
+                <thead>
+                    <tr class="bg-gray-200 text-left">
+                        <th class="py-2 px-4">USN</th>
+                        <th class="py-2 px-4">CGPA</th>
+                        <th class="py-2 px-4">10th Passing Year</th>
+                        <th class="py-2 px-4">10th Percentage</th>
+                        <th class="py-2 px-4">12th Passing Year</th>
+                        <th class="py-2 px-4">12th Percentage</th>
+                        <th class="py-2 px-4">Skills</th>
+                        <th class="py-2 px-4">Technologies</th>
+                        <th class="py-2 px-4">CET/COMEDK Rank</th>
+                        <th class="py-2 px-4">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% educationRecords.forEach(record => { %>
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2 px-4"><%= record.usn %></td>
+                            <td class="py-2 px-4"><%= record.cgpa %></td>
+                            <td class="py-2 px-4"><%= record.tenth_passing_year %></td>
+                            <td class="py-2 px-4"><%= record.tenth_percentage %></td>
+                            <td class="py-2 px-4"><%= record.twelfth_passing_year %></td>
+                            <td class="py-2 px-4"><%= record.twelfth_percentage %></td>
+                            <td class="py-2 px-4"><%= record.skills %></td>
+                            <td class="py-2 px-4"><%= record.technologies %></td>
+                            <td class="py-2 px-4"><%= record.Cet_comedk_rank %></td>
+                            <td class="py-2 px-4">
+                                <a href="/education/update/<%= record.usn %>" class="text-blue-600 hover:underline">Update</a>
+                                <a href="/education/delete/<%= record.usn %>" class="text-red-600 hover:underline ml-2">Delete</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer class="bg-blue-600 text-white py-4 mt-auto">
+        <p class="text-center">&copy; 2024 SGBIT</p>
+    </footer>
+</body>
+</html>
