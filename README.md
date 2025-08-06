@@ -49,7 +49,7 @@ preference (most preferred first).
 
 #### .encoding(encodings)
 
-Return the first accepted encoding. If nothing in `encodings` is accepted,
+Return the first accepted encoding.If nothing in `encodings` is accepted,
 then `false` is returned.
 
 #### .encodings()
